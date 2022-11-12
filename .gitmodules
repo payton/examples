@@ -1,0 +1,3 @@
+[submodule "paragraph.xyz/web3-file-sharing-example/cloudfront-auth"]
+	path = paragraph.xyz/web3-file-sharing-example/cloudfront-auth
+	url = git@github.com:payton/cloudfront-auth.git
