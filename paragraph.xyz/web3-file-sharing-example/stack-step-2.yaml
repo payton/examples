@@ -7,6 +7,8 @@ Parameters:
   Nonce:
     Type: String
     Default: '1'
+  LambdaZipFilename:
+    Type: String
 
 Outputs:
   BucketAWSLink:
@@ -113,7 +115,7 @@ Resources:
       Handler: index.handler
       Code:
         S3Bucket: !Ref Bucket
-        S3Key: 'web3-file-sharing-example.zip'
+        S3Key: !Ref LambdaZipFilename
 
   IndexLambdaRole:
     Type: AWS::IAM::Role
