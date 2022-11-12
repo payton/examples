@@ -6,7 +6,7 @@ AWSTemplateFormatVersion: '2010-09-09'
 Parameters:
   Nonce:
     Type: String
-    Default: '1'
+    Default: '2'
   LambdaZipFilename:
     Type: String
 
