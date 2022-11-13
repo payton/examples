@@ -4,42 +4,10 @@
 AWSTemplateFormatVersion: '2010-09-09'
 
 Parameters:
-  Nonce:
-    Type: String
-    Default: '2'
   LambdaZipFilename:
     Type: String
 
 Outputs:
-  BucketAWSLink:
-    Value:
-      Fn::Join:
-        - ""
-        - - "https://s3.console.aws.amazon.com/s3/buckets/"
-          - !Ref Bucket
-          - "?region="
-          - !Ref "AWS::Region"
-  LambdaAWSLink:
-    Value:
-      Fn::Join:
-        - ""
-        - - "https://"
-          - !Ref "AWS::Region"
-          - ".console.aws.com/lambda/home?region="
-          - !Ref "AWS::Region"
-          - "#/functions/"
-          - !Ref IndexLambda
-          - "?tab=code"
-  DistributionAWSLink:
-    Value:
-      Fn::Join:
-        - ""
-        - - "https://"
-          - !Ref "AWS::Region"
-          - ".console.aws.com/lambda/home?region="
-          - !Ref "AWS::Region"
-          - "#/distributions/"
-          - !Ref Distribution
   RedirectURI:
     Value:
       Fn::Join:
@@ -47,6 +15,12 @@ Outputs:
         - - "https://"
           - !GetAtt Distribution.DomainName
           - "/_callback"
+  DistributionURI:
+    Value:
+      Fn::Join:
+        - ""
+        - - "https://"
+          - !GetAtt Distribution.DomainName
 
 Resources:
   Bucket:
@@ -137,7 +111,7 @@ Resources:
     Properties:
       ServiceToken: !GetAtt PublishLambdaVersion.Arn
       FunctionName: !Ref IndexLambda
-      Nonce: !Ref Nonce
+      Nonce: 2
 
   # Custom resource for getting latest version of a lambda,
   # as required by CloudFront.
