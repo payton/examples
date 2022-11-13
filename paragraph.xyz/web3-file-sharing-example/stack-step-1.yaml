@@ -1,4 +1,9 @@
-# Sources
+#
+# CloudFormation Stack - Step 1
+#
+# Defines all infrastucture with primary lambda rejecting all incoming requests.
+#
+# Credits
 # - https://gist.github.com/jed/56b1f58297d374572bc51c59394c7e7f
 #
 AWSTemplateFormatVersion: '2010-09-09'
